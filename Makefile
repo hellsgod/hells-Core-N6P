@@ -193,7 +193,7 @@ SUBARCH := $(shell uname -m | sed -e s/i.86/x86/ -e s/x86_64/x86/ \
 # Default value for CROSS_COMPILE is not to prefix executables
 # Note: Some architectures assign CROSS_COMPILE in their arch/*/Makefile
 ARCH		?= $(SUBARCH)
-CROSS_COMPILE	?= /home/hellsgod/Android/Kernel/aarch64-linux-android-6.x/bin/aarch64-linux-android-
+CROSS_COMPILE	?= /home/hellsgod/Android/Kernel/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
@@ -589,12 +589,6 @@ KBUILD_CFLAGS	+= -O3
 KBUILD_CFLAGS += $(call cc-disable-warning,maybe-uninitialized)
 KBUILD_CFLAGS += $(call cc-disable-warning,array-bounds)
 endif
-KBUILD_CFLAGS += $(call cc-disable-warning,unused-const-variable)
-KBUILD_CFLAGS += $(call cc-disable-warning,misleading-indentation)
-KBUILD_CFLAGS += $(call cc-disable-warning,shift-overflow)
-KBUILD_CFLAGS += $(call cc-disable-warning,memset-transposed-args)
-KBUILD_CFLAGS += $(call cc-disable-warning,bool-compare)
-KBUILD_CFLAGS += $(call cc-disable-warning,tautological-compare)
 
 include $(srctree)/arch/$(SRCARCH)/Makefile
 
